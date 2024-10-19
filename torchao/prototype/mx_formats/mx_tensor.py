@@ -140,7 +140,7 @@ def to_mx(
     # Note: it would be more correct to set the minimum to 2**-127, but this
     # does not work in triton either as it looks like subnormal value handling
     # has some gaps.  So, for now just set to the minimum normal value.
-    scale_fp = torch.clamp(scale_fp, min=F32_MIN_NORMAL)
+    # scale_fp = torch.clamp(scale_fp, min=F32_MIN_NORMAL)
 
     # scale and saturated cast the data elements to max of target dtype
     if elem_dtype == torch.float8_e4m3fn:
